@@ -3,61 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Batool Thneibat | Flutter Developer</title>
+  <title>Batool Thneibat | Flutter Full Stack Developer</title>
   <style>
+    /* ===== Basic Page Setup ===== */
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #fafafa;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background-color: #f8f9fa;
       color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #007bff, #6c63ff);
+      color: #fff;
+      padding: 80px 20px;
       text-align: center;
     }
-    header {
-      margin-bottom: 40px;
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 2.5rem;
     }
-    h1 {
-      color: #0066cc;
+
+    header p {
+      font-size: 1.2rem;
     }
+
     section {
-      margin-bottom: 30px;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
     }
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #777;
+
+    h2 {
+      color: #007bff;
+      border-bottom: 2px solid #007bff;
+      display: inline-block;
+      margin-bottom: 20px;
     }
+
+    /* ===== About Section ===== */
+    #about p {
+      font-size: 1.1rem;
+      text-align: justify;
+    }
+
+    /* ===== Projects Section ===== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    /* ===== Contact Section ===== */
+    #contact p {
+      font-size: 1rem;
+    }
+
     a {
-      color: #0066cc;
+      color: #007bff;
       text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        margin: 30px auto;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- ===== Header ===== -->
   <header>
-    <h1>Hello, I’m Batool Thneibat 👋</h1>
+    <h1>👋 Hi, I’m Batool Thneibat</h1>
     <p>Flutter & MVC Full Stack Developer</p>
   </header>
 
-  <section>
+  <!-- ===== About ===== -->
+  <section id="about">
     <h2>About Me</h2>
-    <p>Motivated and detail-oriented Flutter Developer passionate about building user-friendly mobile apps.</p>
+    <p>
+      I’m a motivated and detail-oriented Junior Flutter Developer with hands-on
+      experience in mobile app development using Flutter, Dart, and MVC Core.
+      Passionate about creating scalable, user-friendly, and visually appealing apps.
+    </p>
   </section>
 
-  <section>
-    <h2>Projects</h2>
-    <ul style="list-style: none; padding: 0;">
-      <li>🌟 Flutter App with Firebase</li>
-      <li>💻 MVC API for mobile backend</li>
-      <li>📱 Cross-platform UI design</li>
-    </ul>
+  <!-- ===== Projects ===== -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>📱 Clinic App</h3>
+        <p>
+          A Flutter mobile app for managing patient appointments, integrated with
+          MVC backend and SQL Server database.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>🛒 E-Commerce App</h3>
+        <p>
+          Built a modern shopping experience with Flutter, Firebase Authentication,
+          and real-time data synchronization.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>💡 Task Management API</h3>
+        <p>
+          Developed RESTful APIs using MVC with JWT authentication and
+          multi-tenant structure.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>Connect with me on 
+  <!-- ===== Contact ===== -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      📧 <strong>Email:</strong>
+      <a href="mailto:batoolthneibat899@gmail.com">batoolthneibat899@gmail.com</a>
+    </p>
+    <p>
+      💼 <strong>LinkedIn:</strong>
       <a href="https://www.linkedin.com/in/batool-al-thneibat-3715621b2" target="_blank">
-        LinkedIn
+        Batool Al-Thneibat
       </a>
     </p>
+    <p>
+      🧠 <strong>GitHub:</strong>
+      <a href="https://github.com/BatoolThneibat" target="_blank">BatoolThneibat</a>
+    </p>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Batool Thneibat — Built with ❤️ using HTML & CSS</p>
   </footer>
 </body>
 </html>
