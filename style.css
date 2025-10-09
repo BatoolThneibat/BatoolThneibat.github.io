@@ -100,4 +100,26 @@
       }
     }
 
+ /* ===== Navigation Bar ===== */
+ .nav-bar {
+     text-align: center;
+     margin: 20px 0;
+ }
+ 
+ .nav-bar a {
+     display: inline-block;
+     margin: 0 15px;
+     padding: 8px 12px;
+     color: #3a2c23; /* warm brown text */
+     text-decoration: none;
+     font-weight: 600;
+     border-radius: 8px;
+     transition: background 0.3s, color 0.3s;
+ }
+ 
+ .nav-bar a:hover {
+     background-color: #bfa68a; /* beige highlight */
+     color: #fff;
+ }
+
   </style>
