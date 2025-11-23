@@ -48,5 +48,6 @@ footer { text-align: center; padding: 20px 0; background: #111; color: #ccc; fon
 
 .project-image {
     width: 400px;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
 }
