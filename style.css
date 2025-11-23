@@ -47,7 +47,7 @@ section h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1
 footer { text-align: center; padding: 20px 0; background: #111; color: #ccc; font-size: 0.9rem; }
 
 .project-image {
-    width: 400px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
     object-fit: cover;
 }
