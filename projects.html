@@ -10,6 +10,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const closeBtn = document.querySelector('.lightbox .close');
+
+// Function to open lightbox
+const openLightbox = (src) => {
+  lightboxImg.src = src;
+  lightbox.style.display = 'flex';
+};
+
+// Attach to sliders
 document.querySelectorAll('.project-card').forEach(card => {
   const slides = card.querySelectorAll('.slide');
   let current = 0;
@@ -19,36 +30,41 @@ document.querySelectorAll('.project-card').forEach(card => {
     slides[index].classList.add('active');
   };
 
-  card.querySelector('.prev').addEventListener('click', () => {
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
-  });
+  const prevBtn = card.querySelector('.prev');
+  const nextBtn = card.querySelector('.next');
 
-  card.querySelector('.next').addEventListener('click', () => {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  });
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
 
-  // Lightbox
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.querySelector('.lightbox-img');
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+  }
+
+  // Make slides clickable for lightbox
   slides.forEach(slide => {
     slide.style.cursor = 'pointer';
-    slide.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      lightboxImg.src = slide.src;
-    });
+    slide.addEventListener('click', () => openLightbox(slide.src));
   });
 
-  // Close lightbox
-  document.querySelector('.lightbox .close').addEventListener('click', () => {
-    lightbox.style.display = 'none';
-  });
+  // Make single images clickable for lightbox
+  const singleImg = card.querySelector('.project-image');
+  if (singleImg) {
+    singleImg.style.cursor = 'pointer';
+    singleImg.addEventListener('click', () => openLightbox(singleImg.src));
+  }
+});
 
-  // Close on click outside image
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) lightbox.style.display = 'none';
-  });
+// Close lightbox
+closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+
+// Close on click outside image
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) lightbox.style.display = 'none';
 });
 </script>
 
