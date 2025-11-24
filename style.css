@@ -63,6 +63,11 @@ footer { text-align: center; padding: 20px 0; background: #111; color: #ccc; fon
   transition: transform 0.3s;
 }
 
+.project-card.web img {
+  height: 250px;      
+  object-fit: contain;
+  width: 100%;
+}
 .project-card:hover {
   transform: translateY(-5px);
 }
