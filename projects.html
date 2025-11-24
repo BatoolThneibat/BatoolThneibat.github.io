@@ -14,13 +14,6 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.querySelector('.lightbox-img');
 const closeBtn = document.querySelector('.lightbox .close');
 
-// Function to open lightbox
-const openLightbox = (src) => {
-  lightboxImg.src = src;
-  lightbox.style.display = 'flex';
-};
-
-// Attach to sliders
 document.querySelectorAll('.project-card').forEach(card => {
   const slides = card.querySelectorAll('.slide');
   let current = 0;
@@ -30,39 +23,32 @@ document.querySelectorAll('.project-card').forEach(card => {
     slides[index].classList.add('active');
   };
 
+  // Buttons
   const prevBtn = card.querySelector('.prev');
   const nextBtn = card.querySelector('.next');
 
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    });
-
-    nextBtn.addEventListener('click', () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    });
-  }
-
-  // Make slides clickable for lightbox
-  slides.forEach(slide => {
-    slide.style.cursor = 'pointer';
-    slide.addEventListener('click', () => openLightbox(slide.src));
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
   });
 
-  // Make single images clickable for lightbox
-  const singleImg = card.querySelector('.project-image');
-  if (singleImg) {
-    singleImg.style.cursor = 'pointer';
-    singleImg.addEventListener('click', () => openLightbox(singleImg.src));
-  }
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+
+  // Click to open lightbox
+  slides.forEach(slide => {
+    slide.style.cursor = 'pointer';
+    slide.addEventListener('click', () => {
+      lightboxImg.src = slide.src;
+      lightbox.style.display = 'flex';
+    });
+  });
 });
 
 // Close lightbox
 closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
-
-// Close on click outside image
 lightbox.addEventListener('click', e => {
   if (e.target === lightbox) lightbox.style.display = 'none';
 });
