@@ -23,6 +23,7 @@
   <section id="projects">
     <h2>Personal Projects</h2>
     <div class="projects-container">
+      <!-- Mobile App Project -->
       <div class="project-card">
         <div class="project-slider">
           <img class="slide active" src="assets/Shopping App1.png" alt="Shopping App - Dashboard">
@@ -38,6 +39,8 @@
           <p><strong>Technologies:</strong> Flutter, Firebase</p>
         </div>
       </div>
+
+      <!-- Website Project -->
       <div class="project-card web">
         <img class="slide active" src="assets/LearningAcademyScreen.png" alt="Learning Academy 2023">
         <div class="card-content">
@@ -48,12 +51,13 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
       <span class="close">&times;</span>
       <img class="lightbox-img" src="" alt="Project Screenshot">
     </div>
+
     <h2>Professional / Company Projects</h2>
     <div class="projects-container">
       <div class="project-card">
@@ -63,28 +67,28 @@
           <p><strong>Technologies:</strong> Flutter, MVC</p>
         </div>
       </div>
-       <div class="project-card">
+      <div class="project-card">
         <div class="card-content">
           <h3>Microcare (Patients App)</h3>
           <p>Implemented patient data modules and app features using Flutter with MVC architecture.</p>
           <p><strong>Technologies:</strong> Flutter, MVC</p>
         </div>
       </div>
-       <div class="project-card">
+      <div class="project-card">
         <div class="card-content">
           <h3>Salam Patients App</h3>
           <p>Built UI components and integrated backend services for patient management.</p>
           <p><strong>Technologies:</strong> Flutter, MVC</p>
         </div>
       </div>
-       <div class="project-card">
+      <div class="project-card">
         <div class="card-content">
           <h3>Alshaya Patients App</h3>
           <p>Developed key functionalities and maintained code quality using Flutter/MVC </p>
           <p><strong>Technologies:</strong> Flutter, MVC</p>
         </div>
       </div>
-        <div class="project-card">
+      <div class="project-card">
         <div class="card-content">
           <h3>Elyzee Patients App</h3>
           <p>Contributed to app architecture, state management, and feature implementation.</p>
@@ -92,68 +96,65 @@
         </div>
       </div>
     </div>
-
   </section>
 
   <footer>
     &copy; 2025 Batool Thneibat. All rights reserved.
   </footer>
-  <!-- Lightbox & slider JS -->
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const closeBtn = document.querySelector('.lightbox .close');
 
-document.querySelectorAll('.project-card').forEach(card => {
-  const slides = card.querySelectorAll('.slide');
-  let current = 0;
+  <!-- Lightbox & Slider JS -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const closeBtn = document.querySelector('.lightbox .close');
 
-  const showSlide = index => {
-    slides.forEach((slide, i) => slide.classList.remove('active'));
-    slides[index].classList.add('active');
-  };
+    document.querySelectorAll('.project-card').forEach(card => {
+      const slides = card.querySelectorAll('.slide');
+      let current = 0;
 
-  const prevBtn = card.querySelector('.prev');
-  const nextBtn = card.querySelector('.next');
+      const showSlide = index => {
+        slides.forEach((slide, i) => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+      };
 
-  if(prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
+      const prevBtn = card.querySelector('.prev');
+      const nextBtn = card.querySelector('.next');
+
+      if(prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          current = (current - 1 + slides.length) % slides.length;
+          showSlide(current);
+        });
+
+        nextBtn.addEventListener('click', () => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        });
+      }
+
+      slides.forEach(slide => {
+        slide.style.cursor = 'pointer';
+        slide.addEventListener('click', () => {
+          lightboxImg.src = slide.src;
+          lightbox.style.display = 'flex';
+        });
+      });
+
+      // single image for website
+      const singleImg = card.querySelector(':scope > .slide');
+      if(singleImg) {
+        singleImg.style.cursor = 'pointer';
+        singleImg.addEventListener('click', () => {
+          lightboxImg.src = singleImg.src;
+          lightbox.style.display = 'flex';
+        });
+      }
     });
 
-    nextBtn.addEventListener('click', () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
+    closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
     });
-  }
-
-  // Click to open lightbox for slider images
-  slides.forEach(slide => {
-    slide.style.cursor = 'pointer';
-    slide.addEventListener('click', () => {
-      lightboxImg.src = slide.src;
-      lightbox.style.display = 'flex';
-    });
-  });
-
-  // Click to open lightbox for single images
-  const singleImg = card.querySelector(':scope > .slide'); // لتوحيد الشكل
-  if(singleImg) {
-    singleImg.style.cursor = 'pointer';
-    singleImg.addEventListener('click', () => {
-      lightboxImg.src = singleImg.src;
-      lightbox.style.display = 'flex';
-    });
-  }
-});
-
-// Close lightbox
-closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
-lightbox.addEventListener('click', e => {
-  if (e.target === lightbox) lightbox.style.display = 'none';
-});
-</script>
-
+  </script>
 </body>
 </html>
