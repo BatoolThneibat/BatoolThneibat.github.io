@@ -58,3 +58,42 @@ footer { text-align: center; padding: 20px 0; background: #111; color: #ccc; fon
   border-radius: 8px;
   object-fit: cover;
 }
+
+.project-slider {
+  position: relative;
+  width: 100%;
+  height: 180px; /* same as your card image */
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+
+.project-slider .slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transition: left 0.5s ease-in-out;
+}
+
+.project-slider .slide.active {
+  left: 0;
+}
+
+.project-slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.project-slider .prev { left: 5px; }
+.project-slider .next { right: 5px; }
+
+.project-slider button:hover { background: rgba(0,0,0,0.6); }
