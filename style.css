@@ -88,7 +88,7 @@ footer { text-align: center; padding: 20px 0; background: #111; color: #ccc; fon
 .project-slider .slide.active, .project-card.web img {
   left: 0;
   position: relative;
-  height: 250px; /* Web image smaller */
+  height: 400px; /* Web image smaller */
 }
 
 /* Navigation Arrows */
