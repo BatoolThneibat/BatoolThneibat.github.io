@@ -9,6 +9,28 @@
   <title>Projects | Batool Thneibat</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+document.querySelectorAll('.project-card').forEach(card => {
+  const slides = card.querySelectorAll('.slide');
+  let current = 0;
+
+  const showSlide = index => {
+    slides.forEach((slide, i) => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+  };
+
+  card.querySelector('.prev').addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  });
+
+  card.querySelector('.next').addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+});
+</script>
+  
 <body>
   <header>
     <h1>Batool Thneibat</h1>
@@ -24,10 +46,12 @@
     <h2>Personal Projects</h2>
     <div class="projects-container">
       <div class="project-card">
-        <div class="project-images">
-          <img class="project-image" src="assets/Shopping App1.png" alt="Learning Academy - Dashboard">
-          <img class="project-image" src="assets/Shopping App2.png" alt="Learning Academy - Courses">
-          <img class="project-image" src="assets/Shopping App3.png" alt="Learning Academy - Attendance">
+        <div class="project-slider">
+          <img class="slide active" src="assets/Shopping App1.png" alt="Shopping App - Dashboard">
+          <img class="slide" src="assets/Shopping App2.png" alt="Shopping App - Profile">
+          <img class="slide" src="assets/Shopping App3.png" alt="Shopping App - Add Item">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
         </div>
         <div class="card-content">
           <h3>Shopping App, 2024</h3>
