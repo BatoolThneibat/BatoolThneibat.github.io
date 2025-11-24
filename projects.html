@@ -38,13 +38,8 @@
           <p><strong>Technologies:</strong> Flutter, Firebase</p>
         </div>
       </div>
-      <!-- Lightbox Modal -->
-      <div id="lightbox" class="lightbox">
-        <span class="close">&times;</span>
-        <img class="lightbox-img" src="" alt="Project Screenshot">
-      </div>
       <div class="project-card">
-        <img class="project-image" src="assets/LearningAcademyScreen.png" alt="Learning Academy 2023">
+        <img class="slide active" src="assets/LearningAcademyScreen.png" alt="Learning Academy 2023">
         <div class="card-content">
           <h3>Learning Academy, 2023</h3>
           <p>Developed a learning platform with student/teacher dashboards, attendance, and course management.</p>
@@ -54,6 +49,11 @@
       </div>
     </div>
     
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-img" src="" alt="Project Screenshot">
+    </div>
     <h2>Professional / Company Projects</h2>
     <div class="projects-container">
       <div class="project-card">
@@ -138,7 +138,7 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
 
   // Click to open lightbox for single images
-  const singleImg = card.querySelector('.project-image');
+  const singleImg = card.querySelector(':scope > .slide'); // لتوحيد الشكل
   if(singleImg) {
     singleImg.style.cursor = 'pointer';
     singleImg.addEventListener('click', () => {
