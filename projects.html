@@ -28,8 +28,30 @@ document.querySelectorAll('.project-card').forEach(card => {
     current = (current + 1) % slides.length;
     showSlide(current);
   });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.querySelector('.lightbox-img');
+  slides.forEach(slide => {
+    slide.style.cursor = 'pointer';
+    slide.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = slide.src;
+    });
+  });
+
+  // Close lightbox
+  document.querySelector('.lightbox .close').addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // Close on click outside image
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+  });
 });
 </script>
+
   
 <body>
   <header>
@@ -59,6 +81,11 @@ document.querySelectorAll('.project-card').forEach(card => {
           <p>Designed secure API flows for authentication and payments.</p>
           <p><strong>Technologies:</strong> Flutter, Firebase</p>
         </div>
+      </div>
+      <!-- Lightbox Modal -->
+      <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" src="" alt="Project Screenshot">
       </div>
       <div class="project-card">
         <img class="project-image" src="assets/LearningAcademyScreen.png" alt="Learning Academy 2023">
