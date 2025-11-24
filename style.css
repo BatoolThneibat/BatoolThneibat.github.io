@@ -46,8 +46,15 @@ section h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1
 /* Footer */
 footer { text-align: center; padding: 20px 0; background: #111; color: #ccc; font-size: 0.9rem; }
 
+.project-images {
+  display: flex;
+  gap: 10px; /* space between images */
+  overflow-x: auto; /* horizontal scroll if too many images */
+}
+
 .project-image {
-    width: 200px;
-    height: 100px;
-    object-fit: cover;
+  width: 200px; /* adjust as needed */
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
 }
